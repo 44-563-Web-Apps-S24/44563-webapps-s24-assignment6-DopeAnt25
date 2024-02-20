@@ -29,9 +29,32 @@
 
 <div id="result"> Correct = 0 : Wrong = 0</div>
 
+<div class="container">
+  <img src="JackDaniels.jpg" id="drinkImage" style="width: 150px;height: 150px;" onclick="selectImage()">
+</div>
+<script>
+  var useImage = 1;
+  var currImage = document.getElementById("drinkImage")
+  function selectImage(){
+    switch (useImage){
+      case 1:
+        currImage.src = "CocaCola.jpg"
+        useImage = 2
+        break;
+      case 2:
+        currImage.src = "negroni.jpg"
+        useImage = 3
+        break;
+      case 3:
+        currImage.src = "JackDaniels.jpg"
+        useImage = 1
+        break;
+    }
+  }
+</script>
 <script> 
-var wrong = 0
-var correct = 0
+var wrong = 0;
+var correct = 0;
 function checkAnimal(){
     console.log("Grabbing those values");
     animal = document.getElementById("form1_hidden").value;
