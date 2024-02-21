@@ -48,22 +48,49 @@
     }
 </script>
 
-<script> 
+<form>
+    <input type="radio" id="addition" name="operation"
+        value="add" onclick="chooseOp()">
+    <label for="addition">addition</label></br>
+  
+    <input type="radio" id="multiplication" name="operation"   
+        value="multiply" onclick="chooseOp()">
+    <label for="multiplication">mult</label></br>
+  
+    <input type="radio" id="exponent" name="operation"   
+        value="exponent" onclick="chooseOp()">
+    <label for="exponent">exp</label></br>
+</form>
+<div class="container" id = "output">
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+</div>
+<script>
+    function chooseOp(){
+        console.log ("grabbing those values")
+        var price = parseFloat(document.getElementById("form1_price").value)
+        var discountValue = parseFloat(document.getElementById("form1_discount").value)
+        var op = document.querySelector('input[name = "operation"]:checked').value
+        var output = document.getElementById("output")
+        var result = 0
+        console.log(op)
+        switch(op){
+            case 'add':
+                result = price + discountValue
+                output.innerHTML = "Adding " + price + " and " + discountValue + " resulting in " + result
+                console.log(result)
+                break
+            case 'multiply':
+                result = price * discountValue
+                output.innerHTML = "Mulitpling " + price + " and " + discountValue + " resulting in " + result
+                console.log(result)
+                break   
+            case 'exponent':
+                result = price ** discountValue
+                output.innerHTML = "Exponentiating  " + price + " and " + discountValue + " resulting in " + result
+                console.log(result)
+                break
+        }
     }
-}
 </script>
-
 </body>
 </html> 
