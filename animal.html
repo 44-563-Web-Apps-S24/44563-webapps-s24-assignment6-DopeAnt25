@@ -23,7 +23,7 @@
     <label for="form1_animal">Guess the animal </label>
     <input type ="text" id="form1_animal" name="form1_animal" autofocus> <br>
 
-    <input type="button" onclick="checkAnimal()" value="Check the Guess">
+    <input id = "btn" type="button" onclick="checkAnimal()" value="Check the Guess">
 </form>
 
 
@@ -55,6 +55,9 @@
 <script> 
 var wrong = 0;
 var correct = 0;
+if (correct < wrong){
+  document.getElementById("btn").onclick = tooMany
+}
 function checkAnimal(){
     console.log("Grabbing those values");
     animal = document.getElementById("form1_hidden").value;
@@ -65,14 +68,20 @@ function checkAnimal(){
         correct ++;
         alert("ruff ruff");
     }else{
+        if(correct < wrong){
+          document.getElementById("btn").onclick = tooMany
+          tooMany()
+          return
+        }
         wrong ++;
         alert("Grrr");
     }
     message = "Correct = " + correct + " : Wrong = "+ wrong;
     result.innerText = message;
 }
-
-
+function tooMany(){
+  alert("too many guesses")
+}
 </script>
 
 </body>
