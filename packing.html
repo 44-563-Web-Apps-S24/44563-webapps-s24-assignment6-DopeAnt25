@@ -31,11 +31,21 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <label for="form2_Month">Enter travel month</label>
+    <input type ="text" id="form2_Month" name="form2_Month" value = "May"> <br>
+
+    <label for = "form2_price">Enter Price</label>
+    <input type="text" id="form2_price" name="form2_price">
+
+    <input type ="button" onclick="updatePack()" value="Update the pack">
+</form>
+<div id="result2"></div>
 <script> 
 var my_pack = {}
 function selectPack(){
     my_pack = {}
-    console.log("grabbing values")
+    console.log("grabbing values for selecting pack")
     var packLightChecked = document.getElementById("form1_packLight").checked
     var carryOnChecked = document.getElementById("form1_carryOn").checked
     var tabletChecked = document.getElementById("form1_tablet").checked
@@ -43,6 +53,17 @@ function selectPack(){
     my_pack = { packLight : packLightChecked, carryOn: carryOnChecked, tablet: tabletChecked}
     var str = "Pack Light: " + my_pack.packLight+ "<br>" + "Carry On: " + my_pack.carryOn + "<br>" + "tablet: " + my_pack.tablet
     document.getElementById("result").innerHTML = str
+    console.log("displaying results for selected pack")
+}
+function updatePack(){
+    console.log("grabbing values for update pack")
+    monthValue = document.getElementById("form2_Month").value
+    priceValue = document.getElementById("form2_price").value
+    my_pack["price"] = priceValue
+    my_pack["month"] = monthValue
+    let str = "Month: " + my_pack.month + "<br> Price: " + my_pack.price + "<br>"
+    document.getElementById("result2").innerHTML = str
+    console.log("displaying the values for update pack")
 }
 </script>
 
