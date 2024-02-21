@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Packing</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+ </head>
+<body>
+
+<h2>Anthony packs for a trip</h2>
+
+<form>
+    <label for="form1_packLight"> Pack light</label>
+    <input type ="checkbox" id="form1_packLight" name="form1_packLight" value= True> <br>
+
+    <label for="form1_carryOn">Carry On </label>
+    <input type ="checkbox" id="form1_carryOn" name="form1_carryOn" value = True> <br>
+
+    <label for = "form1_tablet">Tablet</label>
+    <input type="checkbox" id="form1_tablet" name="form1_tablet" value="False">
+
+    <input type ="button" onclick="selectPack()" value="Select for packing">
+</form>
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var my_pack = {}
+function selectPack(){
+    my_pack = {}
+    console.log("grabbing values")
+    var packLightChecked = document.getElementById("form1_packLight").checked
+    var carryOnChecked = document.getElementById("form1_carryOn").checked
+    var tabletChecked = document.getElementById("form1_tablet").checked
+    
+    my_pack = { packLight : packLightChecked, carryOn: carryOnChecked, tablet: tabletChecked}
+    var str = "Pack Light: " + my_pack.packLight+ "<br>" + "Carry On: " + my_pack.carryOn + "<br>" + "tablet: " + my_pack.tablet
+    document.getElementById("result").innerHTML = str
+}
+</script>
+
+</body>
+</html> 
